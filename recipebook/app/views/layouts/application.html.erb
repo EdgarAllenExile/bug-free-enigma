@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recipebook</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RecipeBook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<nav>
-    <%= link_to "Home", root_path %>
-    <% if @current_user.present? %>
-        <%= link_to "Logout", login_path, :method => 'delete' %>
-    <% else %>
-        <%= link_to "Log in", login_path %>
-    <% end %>
-</nav>
-
-
-
   <body>
-    <%= yield %>
+    <div class="container">
+      <nav class="navbar bg-body-tertiary ">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <% if @current_user.present? %>
+          <% if @current_user.admin? %>
+            <%= button_to "All users", users_path, :class => 'btn btn-warning btn-sm' %>
+          <% end %>
+          <%= button_to "Log out #{ @current_user.name }", login_path, :method => :delete, :class => "btn btn-warning btn-sm" %>
+        </div>
+        <%= link_to "New Recipe", new_recipe_path, :class => 'btn btn-success btn-lg' %>
+        <% else %>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <%= link_to "Sign up!", new_user_path, :class => "btn btn-outline-info" %>
+            <%= link_to "Sign in", login_path, :class => "btn btn-outline-info" %>
+          </div>
+        <% end %>
+      
+        <%= form_tag "/recipes", :class => "d-dlex", method: "GET" do %>
+          <%= text_field_tag :search_by_name, params[:search_by_name] %>
+          <%= submit_tag "Search", :class => "btn btn-info" %>
+        <% end %>
+      </nav>
+      <%= yield %>
+    </div>
   </body>
 </html>
