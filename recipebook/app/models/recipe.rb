@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
     belongs_to :user
-    has_many :quantities
-    has_many :ingredients, :through => :quantities
+    has_many :ingredients
+    has_many :quantities, :through => :ingredients
 end

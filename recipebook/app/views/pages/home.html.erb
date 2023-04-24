@@ -1,7 +1,9 @@
 <div class="container">
 <h1>Riley and Phoebe's RecipeBook</h1>
 
-<%= "Hello #{ @current_user.name }, what would you like to cook today?" %>
+<% if @current_user.present? %>
+    <%= "Hello #{ @current_user.name }, what would you like to cook today?" %>
+<% end %>
 <div>
 <h3> Select by Drop Downs</h3>
 </div>

@@ -16,18 +16,15 @@
       <div class="btn-group" role="group" aria-label="Basic example">
         <% if @current_user.present? %>
           <% if @current_user.admin? %>
-            <%= button_to "All users", users_path, :class => 'btn btn-warning btn-sm' %>
+            <%= link_to "All users", users_path, :class => 'btn btn-warning btn-sm' %>
           <% end %>
           <%= button_to "Log out #{ @current_user.name }", login_path, :method => :delete, :class => "btn btn-warning btn-sm" %>
-        </div>
-        <%= link_to "New Recipe", new_recipe_path, :class => 'btn btn-success btn-lg' %>
         <% else %>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <%= link_to "Sign up!", new_user_path, :class => "btn btn-outline-info" %>
-            <%= link_to "Sign in", login_path, :class => "btn btn-outline-info" %>
-          </div>
+            <%= link_to "Sign up!", new_user_path, :class => "btn btn-info" %>
+            <%= link_to "Sign in!", login_path, :class => "btn btn-info" %>
         <% end %>
-      
+          </div>
+        <%= link_to "New Recipe", new_recipe_path, :class => 'btn btn-success btn-lg' %>
         <%= form_tag "/recipes", :class => "d-dlex", method: "GET" do %>
           <%= text_field_tag :search_by_name, params[:search_by_name] %>
           <%= submit_tag "Search", :class => "btn btn-info" %>
