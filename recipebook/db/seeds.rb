@@ -39,4 +39,4 @@ i1.quantity << q1
 i2.quantity << q2
 
 puts "Recipes and Steps"
-r1.steps << s1 << s2 << s3
+r1.steps << s1 << s2 << s31

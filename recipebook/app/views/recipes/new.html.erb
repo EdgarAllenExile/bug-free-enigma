@@ -1,34 +1,86 @@
-<h1>Create New Recipe</h1>
-<p>Please include all relevant information</p>
+<%= javascript_import_module_tag "dynamic-fields" %>
 
-<%# <%= render :partial => 'form'  WE NEED THIS >>>> %>
+<div class="container"> 
+    <h1>Create New Recipe</h1>
+    <p>Please include all relevant information</p>
+
+    <%# <%= render :partial => 'form'  WE NEED THIS >>>> %>
 
 
-<%= form_for @recipe do |f| %>
+    <%= form_with model: @recipe do |form| %>
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Recipe Title</span>
+                <%= form.text_field :title, :class => 'form-control'%>
+                </div>
+            </div>
 
-    <%= f.label :title, :class => 'form-label' %>
-    <%= f.text_field :title, :class => 'form-control ' %>
+            <div class="col">
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Category</span>
+                <%= form.text_field :category, :class => 'form-control' %>
+            </div>
+            </div>
+        </div>
 
-    <%= f.label :category, :class => 'form-label' %>
-    <%= f.text_field :category, :class => 'form-control' %>
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Recipe Intensity</span>
+                <%= form.number_field :intensity, :step => 1, :class => 'form-control' %>
+                </div>
+            </div>
 
-    <%= f.label :intensity, :class => 'form-label' %>
-    <%= f.number_field :intensity, :step => 0.01, :class => 'form-control' %>
+            <div class="col">
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Serves</span>
+                <%= form.number_field :serves, :step => 1, :class => 'form-control' %>
+                </div>
+            </div>
+        </div>
 
-    <%= f.label :serves, :class => 'form-label' %>
-    <%= f.number_field :serves, :step => 0.01, :class => 'form-control' %>
+    <%= form.fields_for :quantities do |quantities_form| %>
+        <div class="row multiple-form-group">
+            <div class="form-group input-group mb-3">
+                <span class="input-group-text">Ingredients</span>
+                <%= quantities_form.number_field :amount, :step => 0.25, :class => 'form-control' %>
+                <%= quantities_form.text_field :unit, :step => 0.01, :class => 'form-control' %>
+    <% end %>
+    
+    <%= form.fields_for :ingredients do |ingredients_form| %> 
+                <%= ingredients_form.text_field :title, :class => 'form-control' %>
+                <button class="btn btn-success btn-add " type="button" id="button-addon2">Add</button>
+            </div>
+        </div>  
+    <% end %>
 
-    <%= f.label :quantities, :class => 'form-label' %>
-    <%= f.number_field :quantities, :step => 0.01, :class => 'form-control' %>
+    <%= form.fields_for :steps do |steps_form, i| %>
+        <div class="row multiple-form-group">
+            <div class="form-group input-group mb-3">
+                <span class="input-group-text">Steps</span>
+                <%= steps_form.text_field :process, :class => 'form-control' %>
+                <button class="btn btn-success btn-add " type="button" id="button-addon2">Add</button>
+            </div>
+        </div>
+    <% end %>
+ 
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Image URL</span>
+                    <%= form.text_field :image, :class => 'form-control' %>
+                </div>
+            </div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    </div>
+                </div>
+            </div>
 
-    <%= f.label :ingredients, :class => 'form-label' %>
-    <%= f.text_field :ingredients, :class => 'form-control' %>
 
-    <%= f.label :steps, :class => 'form-label' %> 
-    <%= f.text_field :steps, :class => 'form-control' %>
+            <%= form.submit "Create Recipe", :class => 'btn btn-success btn-sm' %>
+    <% end %> 
 
-    <%= f.label :image, :class => 'form-label' %>
-    <%= f.text_field :image, :class => 'form-control' %>
-
-    <%= f.submit "Create Recipe", :class => 'btn btn-success btn-sm' %>
-<% end %> 
+</div>

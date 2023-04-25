@@ -1,0 +1,38 @@
+<div class="container"> 
+<h1>Create New Recipe</h1>
+<p>Please include all relevant information</p>
+
+<%# <%= render :partial => 'form'  WE NEED THIS >>>> %>
+
+
+<%= form_for @recipe do |f| %>
+
+    <%= f.label :title, :class => 'form-label' %>
+    <%= f.text_field :title, :class => 'form-control ' %>
+
+    <%= f.label :category, :class => 'form-label' %>
+    <%= f.text_field :category, :class => 'form-control' %>
+
+    <%= f.label :intensity, :class => 'form-label' %>
+    <%= f.number_field :intensity, :step => 0.01, :class => 'form-control' %>
+
+    <%= f.label :serves, :class => 'form-label' %>
+    <%= f.number_field :serves, :step => 0.01, :class => 'form-control' %>
+
+    <%= f.label :quantities, :class => 'form-label' %>
+    <%= f.number_field :quantities, :step => 0.01, :class => 'form-control' %>
+
+    <%= f.label :ingredients, :class => 'form-label' %>
+    <%= f.text_field :ingredients, :class => 'form-control' %>
+
+    <%= f.label :steps, :class => 'form-label' %> 
+    <%= f.text_field :steps, :class => 'form-control' %>
+
+    <%= f.label :image, :class => 'form-label' %>
+    <%= f.text_field :image, :class => 'form-control' %>
+
+    <%= f.submit "Create Recipe", :class => 'btn btn-success btn-sm' %>
+<% end %> 
+
+</div>
+ 

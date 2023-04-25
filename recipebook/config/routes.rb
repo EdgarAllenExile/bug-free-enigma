@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   # get 'recipes/index'
   get 'recipes/show'
-  # get 'recipes/edit'
-  # get 'recipes/new'
+  get 'recipes/edit'
+  get 'recipes/new'
   # I don't quite understand what the difference here is...
   # get 'users/index'
   # get 'users/show'
