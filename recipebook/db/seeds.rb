@@ -5,7 +5,7 @@ u3 = User.create :name => 'Phoebe', :email => 'phoebe@gmail.com', :password => '
 puts "#{ User.count } users total!"
 
 Recipe.destroy_all
-r1 = Recipe.create :title => 'Eggs on Toast', :category => 'Breakfast', :intensity => 1, :serves => 1, :steps => "1. Put the toast on and put the pan on medium heat. 2. Fry the egg. 3. Consume!", :image => "https://upload.wikimedia.org/wikipedia/commons/f/f0/Fried_Egg_2.jpg"
+r1 = Recipe.create :title => 'Eggs on Toast', :category => 'Breakfast', :intensity => 1, :serves => 1, :image => "https://upload.wikimedia.org/wikipedia/commons/f/f0/Fried_Egg_2.jpg"
 r2 = Recipe.create :title => 'Coffee'
 puts "#{Recipe.count} recipes total!"
 
@@ -19,6 +19,12 @@ q1 = Quantity.create :unit => 'egg', :amount => 2
 q2 = Quantity.create :unit => 'slice', :amount => 2
 puts "#{Quantity.count} quantities total!"
 
+Step.destroy_all
+s1 = Step.create :step_no => 1, :process => "Put the toast on and put the pan on medium heat."
+s2 = Step.create :step_no => 2, :process => "Fry the egg."
+s3 = Step.create :step_no => 3, :process => "Consume!"
+puts "#{Step.count} steps total!"
+
 puts "Users and Recipes"
 u1.recipes << r1
 
@@ -28,3 +34,6 @@ r1.ingredients << i1 << i2
 puts "Ingredients and Quantities"
 i1.quantity << q1
 i2.quantity << q2
+
+puts "Recipes and Steps"
+r1.steps << s1 << s2 << s3

@@ -1,2 +1,9 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1> <%= @recipe.title %></h1>
+
+<h4>Category: <%= @recipe.category %></h4>
+<h4>Intensity: <%= @recipe.intensity %></h4>
+<h4>Serves: <%= @recipe.serves %></h4>
+<%# <h3>Image: <%= @recipe.image</h3> Not sure if we want to include this here. Maybe off to the right%> 
+
+<h4>Ingredients: </h4>
+<h4>Process: </h4>

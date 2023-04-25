@@ -16,6 +16,10 @@ class RecipesController < ApplicationController
     redirect_to root_path # TODO: redirect somewhere better
   end
 
+  def show
+    @recipe = Recipe.find params[:id]
+  end
+
   private
   def recipe_params
     params.require(:recipe).permit(:title)
