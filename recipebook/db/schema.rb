@@ -55,8 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_035904) do
     t.text "category"
     t.integer "intensity"
     t.integer "serves"
-    t.float "quantities"
-    t.text "ingredients"
     t.text "steps"
     t.text "image"
     t.datetime "created_at", null: false

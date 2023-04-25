@@ -6,8 +6,6 @@ class CreateRecipes < ActiveRecord::Migration[7.0]
       t.text :category
       t.integer :intensity
       t.integer :serves
-      t.float :quantities
-      t.text :ingredients
       t.text :steps
       t.text :image
       t.timestamps

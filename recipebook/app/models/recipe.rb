@@ -1,5 +1,4 @@
 class Recipe < ApplicationRecord
-    belongs_to :user
-    has_many :ingredients
-    has_many :quantities, :through => :ingredients
+    belongs_to :user, :optional => true
+    has_and_belongs_to_many :ingredients
 end

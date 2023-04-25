@@ -1,6 +1,10 @@
 class RecipesController < ApplicationController
   before_action :check_for_login
 
+  def index
+    @recipes = Recipe.all
+  end
+
   def new
     @recipe = Recipe.new
   end
