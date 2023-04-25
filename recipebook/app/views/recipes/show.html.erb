@@ -6,4 +6,20 @@
 <%# <h3>Image: <%= @recipe.image</h3> Not sure if we want to include this here. Maybe off to the right%> 
 
 <h4>Ingredients: </h4>
+<ul>
+
+<% @recipe.quantities.each do |quantity| %> 
+<li> <%=quantity.amount + " " + quantity.unit %>  
+<% quantity.ingredients.each do |ingredient|  %>
+<%= ingredient.title %>
+<% end %> 
+</li>
+<% end %> 
+</ul>
+
 <h4>Process: </h4>
+<ol>
+<% @recipe.steps.each do |step| %>
+    <li><%= step.process %></li>
+<% end %>
+</ol>   

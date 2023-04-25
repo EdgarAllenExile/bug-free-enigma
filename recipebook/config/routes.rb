@@ -5,18 +5,20 @@ Rails.application.routes.draw do
   get 'recipes/show'
   # get 'recipes/edit'
   # get 'recipes/new'
-
   # I don't quite understand what the difference here is...
   # get 'users/index'
   # get 'users/show'
   # get 'users/edit'
   # get 'users/new'
 
+
+  
   resources :users, :only => [:index, :new, :create]
-  resources :recipes 
-  resources :ingredients
-  resources :quantities
-  # recources :steps
+  resources :recipes, shallow: true do
+    resources :ingredients
+    resources :quantities
+    resources :steps
+  end
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

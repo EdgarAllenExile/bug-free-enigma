@@ -10,13 +10,13 @@ r2 = Recipe.create :title => 'Coffee'
 puts "#{Recipe.count} recipes total!"
 
 Ingredient.destroy_all
-i1 = Ingredient.create :title => 'egg', :category => 'Basic'
+i1 = Ingredient.create :title => 'Egg', :category => 'Basic'
 i2 = Ingredient.create :title => 'Bread', :category => 'Basic'
 puts "#{Ingredient.count} ingredients total!"
 
 Quantity.destroy_all
-q1 = Quantity.create :unit => 'egg', :amount => 2 
-q2 = Quantity.create :unit => 'slice', :amount => 2
+q1 = Quantity.create :unit => 'Whole', :amount => 2 
+q2 = Quantity.create :unit => 'Slice', :amount => 2
 puts "#{Quantity.count} quantities total!"
 
 Step.destroy_all
@@ -30,6 +30,9 @@ u1.recipes << r1
 
 puts "Recipes and Ingredients"
 r1.ingredients << i1 << i2
+
+puts "Recipes and Quantities"
+r1.quantities << q1 << q2
 
 puts "Ingredients and Quantities"
 i1.quantity << q1
