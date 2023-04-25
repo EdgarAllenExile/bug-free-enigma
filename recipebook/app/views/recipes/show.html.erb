@@ -9,13 +9,15 @@
 <ul>
 
 <% @recipe.quantities.each do |quantity| %> 
-<li> <%=quantity.amount + " " + quantity.unit %>  
-<% quantity.ingredients.each do |ingredient|  %>
-<%= ingredient.title %>
+<% @recipe.ingredients.each_with_index do |ingredient| %>
+
+<li> <%=quantity.amount + " " + quantity.unit + " " + ingredient.title %>  
+
 <% end %> 
 </li>
 <% end %> 
 </ul>
+
 
 <h4>Process: </h4>
 <ol>

@@ -17,12 +17,11 @@ class QuantitiesController < ApplicationController
     private
 
     def quantity_params
-        params.require(:quantity).permit(:recipe_ids => [], :unit, :amount)
+        params.require(:quantity).permit(:recipe_ids => [], :unit, :amount, ingredients_attributes: [:id, :title, :category])
     end
 end
 
 #     private
-
 #     def quantity_params
 #         params.require(:quantity).permit(ingredient_ids: [])
 #     end

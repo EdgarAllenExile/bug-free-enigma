@@ -50,12 +50,13 @@
     
     <%= form.fields_for :ingredients do |ingredients_form| %> 
                 <%= ingredients_form.text_field :title, :class => 'form-control' %>
+    <% end %>
                 <button class="btn btn-success btn-add " type="button" id="button-addon2">Add</button>
             </div>
         </div>  
-    <% end %>
 
-    <%= form.fields_for :steps do |steps_form, i| %>
+
+    <%= form.fields_for :steps do |steps_form| %>
         <div class="row multiple-form-group">
             <div class="form-group input-group mb-3">
                 <span class="input-group-text">Steps</span>

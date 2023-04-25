@@ -1,3 +1,4 @@
+// Most of this comes from a Bootsnip that I accidently closed. Can be found upon request.
 (function ($) {
     $(function () {
 
@@ -12,11 +13,23 @@
                 .toggleClass('btn-default btn-add btn-danger btn-remove')
                 .html('Delete')
 
+
+        // This is my edit
             const ms_now = Date.now()
             
             $formGroupClone.find('input').val('');
-            $formGroupClone.find('input').attr("id", "recipe_steps_attributes_" + ms_now + "_process")
-            $formGroupClone.find('input').attr("name", "recipe[steps_attributes][" + ms_now + "][process]")
+            $formGroupClone.find('input').each(function() {          
+
+            const id_string = $( this ).attr("id")
+            const new_id_string = id_string.replace(/[0-9]/g, ms_now)
+            const name_string = $( this ).attr("name")
+            const new_name_string = name_string.replace(/[0-9]/g, ms_now)
+
+            $( this ).attr("id", new_id_string)
+            $( this ).attr("name", new_name_string)
+
+        });
+            
             $formGroupClone.insertAfter($formGroup);
 
             var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');

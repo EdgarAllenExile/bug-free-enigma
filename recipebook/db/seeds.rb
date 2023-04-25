@@ -35,8 +35,8 @@ puts "Recipes and Quantities"
 r1.quantities << q1 << q2
 
 puts "Ingredients and Quantities"
-i1.quantity << q1
-i2.quantity << q2
+i1.quantities << q1
+i2.quantities << q2
 
 puts "Recipes and Steps"
-r1.steps << s1 << s2 << s31
+r1.steps << s1 << s2 << s3

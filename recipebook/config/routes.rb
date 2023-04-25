@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root :to => 'pages#home'  
 
-  # get 'recipes/index'
+  get 'recipes/index'
   get 'recipes/show'
   get 'recipes/edit'
   get 'recipes/new'
-  # I don't quite understand what the difference here is...
+ 
   # get 'users/index'
   # get 'users/show'
   # get 'users/edit'
@@ -18,6 +18,16 @@ Rails.application.routes.draw do
     resources :ingredients
     resources :quantities
     resources :steps
+  end
+
+  resources :quantities, shallow: true do
+    resources :recipes
+    resources :ingredients
+  end
+
+  resources :ingredients, shallow: true do
+    resources :recipes
+    resources :quantities
   end
 
   get '/login' => 'session#new'
