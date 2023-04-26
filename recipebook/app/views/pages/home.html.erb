@@ -6,40 +6,44 @@
 <% end %>
 <div class="row">
   <div class="col-sm-6 mb-3 mb-sm-0">
-<div class="card">
-  <h5 class="card-header">Not too sure what you would like?</h5>
-  <div class="card-body">
-  <p class="card-title">Select one of the following options and let the computer pick!</p>
-  <select class="form-select" aria-label="Default select example">
-  <option selected>What meal are you making?</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</select>
-<select class="form-select" aria-label="Default select example">
-  <option selected>What cusine do you feel like?</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</select>
-<select class="form-select" aria-label="Default select example">
-  <option selected>How intense would you like the process to be?</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</select>
-    <a href="#" class="btn btn-primary">Go!</a>
+    <div class="card">
+      <h5 class="card-header">Not too sure what you would like?</h5>
+        <div class="card-body">
+          <p class="card-title">Select one of the following options and let the computer pick!</p>
+            <%= form_tag "/recipes/filter", method: "GET" do %>
+            <div class="form-floating mb-3">
+              <%= select_tag :search_by_category, options_for_select(Recipe.all.map(&:category).uniq.compact_blank), :class => "form-select"%> 
+              <%= label_tag :search_by_category, "Category"%>
+            </div>
+             <div class="form-floating mb-3">
+              <%= select_tag :search_by_cusine, options_for_select(Recipe.all.map(&:cusine).uniq.compact_blank), :class => "form-select" %>
+            <%= label_tag :search_by_cusine, "Cusine"%>
+            </div>
+            <div class="form-floating mb-3">
+              <%= select_tag :search_by_dietary, options_for_select(Recipe.all.map(&:dietary).uniq.compact_blank), :class => "form-select" %>
+            <%= label_tag :search_by_dietary, "Dietary"%>
+            </div>  
+              <%= submit_tag "Search", :class => "btn btn-success" %>
+            <% end %>
+          </div>
+        </div>
     </div>
   </div>
-</div>
 <div class="col-sm-6">
     <div class="card">
-    <h5 class="card-header">Want something completely random?</h5>
-    <div class="card-body">
-    <%# <h5 class="card-title">Have no idea?</h5> %>
-    <p class="card-text">Have no idea? Try a completely random recipe!</p>
-    <a href="#" class="btn btn-primary">Go!</a>
+      <h5 class="card-header">Want something completely random?</h5>
+        <div class="card-body">
+         <h5 class="card-title">Have no idea?</h5> 
+          <p class="card-text">Have no idea? Try a completely random recipe!</p>
+          <a href="#" class="btn btn-primary">Go!</a>
   </div>
 </div>
 </div>
+
 </div>
+</div>
+  
+
+
+
+

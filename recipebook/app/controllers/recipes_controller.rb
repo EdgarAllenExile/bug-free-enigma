@@ -5,6 +5,18 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def filter
+    if params[:search_by_category].blank? && params[:search_by_cusine].blank? && params[:search_by_dietary].blank?
+      redirect_to recipes_path
+
+    else
+      @parameter_category = params[:search_by_category].downcase
+      @parameter_cusine = params[:search_by_cusine].downcase
+      @parameter_dietary = params[:search_by_dietary].downcase 
+      @results = Recipe.all.where(category: @parameter_category, cusine: @parameter_cusine, dietary: @parameter_dietary)
+    end
+  end
+
   def search
     if params[:search].blank?
       redirect_to root_path and return

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'recipes/edit'
   get 'recipes/new'
   get 'recipes/search'
+  get 'recipes/filter'
  
   # get 'users/index'
   # get 'users/show'
