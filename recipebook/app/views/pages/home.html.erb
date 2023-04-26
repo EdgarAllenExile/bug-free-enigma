@@ -1,15 +1,17 @@
 <div class="container">
-<h1>Riley and Phoebe's RecipeBook</h1>
+<h1>Riley's RecipeBook</h1>
 
 <% if @current_user.present? %>
     <%= "Hello #{ @current_user.name }, what would you like to cook today?" %>
 <% end %>
+<br>
+<br>
 <div class="row">
   <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-      <h5 class="card-header">Not too sure what you would like?</h5>
+    <div class="card mb-3 border-secondary">
+      <h5 class="card-header border-secondary text-bg-secondary">Not too sure what you would like?</h5>
         <div class="card-body">
-          <p class="card-title">Select one of the following options and let the computer pick!</p>
+          <h5 class="card-title">Complete the following options and see what fits!</h5>
             <%= form_tag "/recipes/filter", method: "GET" do %>
             <div class="form-floating mb-3">
               <%= select_tag :search_by_category, options_for_select(Recipe.all.map(&:category).uniq.compact_blank), :class => "form-select"%> 
@@ -23,27 +25,25 @@
               <%= select_tag :search_by_dietary, options_for_select(Recipe.all.map(&:dietary).uniq.compact_blank), :class => "form-select" %>
             <%= label_tag :search_by_dietary, "Dietary"%>
             </div>  
-              <%= submit_tag "Search", :class => "btn btn-success" %>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <%= submit_tag "Search", :class => "btn btn-success btn btn-primary" %>
             <% end %>
+            </div>
           </div>
         </div>
     </div>
 
 <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-      <h5 class="card-header">Have no idea?</h5>
+    <div class="card border-secondary">
+      <h5 class="card-header border-secondary text-bg-secondary ">Have no idea?</h5>
         <div class="card-body">
          <h5 class="card-title">Want something completely random?</h5> 
-          <p class="card-text">Try spinning the wheel below!</p>
+          <p class="card-text">Try your luck!</p>
           <% rand_id = Recipe.all.pluck(:id).sample %>
+          <div class="d-grid gap-2 col-6 mx-auto">
           <%= link_to "Go!", "recipes/#{rand_id}", :class => "btn btn-success" %>
+          </div>
       </div>
     </div>
   </div>
 </div>
-
-  
-
-
-
-

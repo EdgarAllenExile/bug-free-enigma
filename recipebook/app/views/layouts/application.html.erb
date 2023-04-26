@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark">
+ <html data-bs-theme="dark">
   <head>
     <title>RecipeBook</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -42,31 +42,29 @@
                 <li class="nav-item  btn-success">
                       <%= link_to "All Recipes", recipes_path, :class => "nav-link active" %>
                 </li>
-                <% if @current_user.present? %>
-                  <% if @current_user.admin? %>
-                    <li class="nav-item">
-                      <%= link_to "All users", users_path, :class => 'btn btn-warning' %>
-                    </li>
-                    <% end %>
-                    <li class="nav-item">
-                      <%= button_to "Log out #{ @current_user.name }", login_path, :method => :delete, :class => "btn btn-warning" %>
-                    </li>
-                    <% else %>
-                    <li class="nav-item">
-                      <%= link_to "Sign up", new_user_path, :class => "nav-link active" %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to "Sign in", login_path, :class => "nav-link active" %>
-                    </li>
-                    <% end %>
                 <% if @recipe.present? && current_page?(controller: 'recipes', action: 'show') %>
+                <hr>
                 <li class="nav-item">
-                     <%= button_to "Delete Recipe", @recipe, :class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+                     <%= button_to "Delete Recipe", @recipe, :class => 'nav-link active', :method => :delete, :data => { :confirm => 'Are you sure?' } %>
                 </li>
                 <li class="nav-item">
-                     <%= link_to "Edit Recipe", edit_recipe_path(@recipe), :class => 'btn btn-primary', :method => :edit %>
+                     <%= link_to "Edit Recipe", edit_recipe_path(@recipe), :class => 'nav-link active', :method => :edit %>
                 </li>
                 <% end %>
+                <hr>
+                <% if @current_user.present? %>
+                  <% if @current_user.admin? %>
+                    <div class="d-grid gap-2">
+                      <%= link_to "All users", users_path, :class => 'btn btn-warning' %>
+                    <% end %>
+                      <%= button_to "Log out #{ @current_user.name }", login_path, :method => :delete, :class => "btn btn-warning" %>
+                    </div>
+                    <% else %>
+                    <div class="d-grid gap-2">
+                      <%= link_to "Sign up", new_user_path, :class => "nav-link active btn btn-success" %>
+                      <%= link_to "Sign in", login_path, :class => "nav-link active btn btn-success" %>
+                    <% end %>
+                    </div>
 
         </div>
       </nav>

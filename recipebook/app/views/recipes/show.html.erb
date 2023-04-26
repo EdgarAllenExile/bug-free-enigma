@@ -1,38 +1,47 @@
-<div class="container"> 
-<h1> <%= @recipe.title %></h1>
-<h5>Category: <%= @recipe.category %></h5>
-<h5>Cusine: <%= @recipe.cusine %></h5>
-<h5>Diatery: <%= @recipe.dietary %></h5>
-<h5>Cook Time: <%= @recipe.cook_time %> minutes</h5>
-<h5>Difficulty: <%= @recipe.difficulty %></h5>
-<h5>Serves: <%= @recipe.serves %></h5>
-<%# <h3>Image: <%= @recipe.image</h3> Not sure if we want to include this here. Maybe off to the right%> 
+<br>
+<div class="card">
+    <div class="card-header">
+        <h1> <%= @recipe.title %></h1>
+    </div>
+    <div class="card-body">
+        <h5>Category: <%= @recipe.category %></h5>
+        <h5>Cusine: <%= @recipe.cusine %></h5>
+        <h5>Diatery: <%= @recipe.dietary %></h5>
+        <h5>Cook Time: <%= @recipe.cook_time %> minutes</h5>
+        <h5>Difficulty: <%= @recipe.difficulty %></h5>
+        <h5>Serves: <%= @recipe.serves %></h5>
+    <%# <h3>Image: <%= @recipe.image</h3> Not sure if we want to include this here. Maybe off to the right%> 
 
-<h4>Ingredients: </h4>
+    <hr>
 
-<% ing_array = [] %>
-<% @recipe.ingredients.find_each do |ingredient| %>
-<% ing_array << ingredient.title %>
-<% end %> 
+        <h4>Ingredients: </h4>
 
-<% quant_array = [] %>
-<% @recipe.quantities.find_each do |quantity| %> 
+        <% ing_array = [] %>
+        <% @recipe.ingredients.find_each do |ingredient| %>
+        <% ing_array << ingredient.title %>
+        <% end %> 
 
-<% quant_array << (quantity.amount + " "+quantity.unit)%>
-<% end %> 
+        <% quant_array = [] %>
+        <% @recipe.quantities.find_each do |quantity| %> 
 
-<ul>
-<% quant_array.each_with_index do |item, index| %>
-<li>
-<%= item + " " + ing_array[index] %>
-<% end %> 
-</li>
-</ul>
+        <% quant_array << (quantity.amount + " "+quantity.unit)%>
+        <% end %> 
 
-<h4>Process: </h4>
-<ol>
-<% @recipe.steps.each do |step| %>
-    <li><%= step.process %></li>
-<% end %>
-</ol>   
+        <ul>
+        <% quant_array.each_with_index do |item, index| %>
+        <li>
+        <%= item + " " + ing_array[index] %>
+        <% end %> 
+        </li>
+        </ul>
+
+    <hr>
+
+        <h4>Process: </h4>
+        <ol>
+        <% @recipe.steps.each do |step| %>
+            <li><%= step.process %></li>
+        <% end %>
+        </ol> 
+    </div>
 </div>
