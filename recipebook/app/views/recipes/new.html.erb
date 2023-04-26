@@ -9,26 +9,40 @@
 
     <%= form_with model: @recipe do |form| %>
         <div class="row">
-            <div class="col">
-                <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Recipe Title</span>
-                <%= form.text_field :title, :class => 'form-control'%>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Category</span>
-                <%= form.text_field :category, :class => 'form-control' %>
-            </div>
+            <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Recipe Title</span>
+            <%= form.text_field :title, :class => 'form-control'%>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
                 <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Recipe Intensity</span>
-                <%= form.number_field :intensity, :step => 1, :class => 'form-control' %>
+                <span class="input-group-text" id="basic-addon1">Category</span>
+                <%= form.text_field :category, :class => 'form-control' %>
+            </div>
+            </div>
+
+        <div class="col">
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Cusine</span>
+                <%= form.text_field :cusine, :class => 'form-control'%>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Difficulty</span>
+                <%= form.number_field :difficulty, :step => 1, :class => 'form-control' %>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Cook Time</span>
+                <%= form.number_field :cook_time, :step => 1, :class => 'form-control' %>
                 </div>
             </div>
 

@@ -5,7 +5,7 @@ u3 = User.create :name => 'Phoebe', :email => 'phoebe@gmail.com', :password => '
 puts "#{ User.count } users total!"
 
 Recipe.destroy_all
-r1 = Recipe.create :title => 'Eggs on Toast', :category => 'Breakfast', :intensity => 1, :serves => 1, :image => "https://upload.wikimedia.org/wikipedia/commons/f/f0/Fried_Egg_2.jpg"
+r1 = Recipe.create :title => 'Eggs on Toast', :category => 'Breakfast', :cusine => 'breakfast', :cook_time => 15, :difficulty => 1, :serves => 1, :image => "https://upload.wikimedia.org/wikipedia/commons/f/f0/Fried_Egg_2.jpg"
 r2 = Recipe.create :title => 'Coffee'
 puts "#{Recipe.count} recipes total!"
 

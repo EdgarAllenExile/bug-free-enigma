@@ -53,7 +53,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_042548) do
     t.text "title"
     t.integer "user_id"
     t.text "category"
-    t.integer "intensity"
+    t.text "cusine"
+    t.integer "cook_time"
+    t.integer "difficulty"
     t.integer "serves"
     t.text "image"
     t.datetime "created_at", null: false
