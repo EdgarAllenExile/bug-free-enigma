@@ -5,13 +5,12 @@ Rails.application.routes.draw do
   get 'recipes/show'
   get 'recipes/edit'
   get 'recipes/new'
+  get 'recipes/search'
  
   # get 'users/index'
   # get 'users/show'
   # get 'users/edit'
   # get 'users/new'
-
-
   
   resources :users, :only => [:index, :new, :create]
   resources :recipes, shallow: true do

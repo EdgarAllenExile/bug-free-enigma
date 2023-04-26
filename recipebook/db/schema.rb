@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_042548) do
     t.integer "user_id"
     t.text "category"
     t.text "cusine"
+    t.text "dietary"
     t.integer "cook_time"
     t.integer "difficulty"
     t.integer "serves"

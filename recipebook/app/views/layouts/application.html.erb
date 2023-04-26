@@ -18,8 +18,8 @@
       <a class="navbar-brand" href="/">Home</a>
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
       <div class="btn-group me-2" role="group" aria-label="First group">
-        <%= form_tag "/recipes", :class => "d-flex", :role => "search", method: "GET" do %>
-          <%= text_field_tag :search_by_name, params[:search_by_name], :class => "form-control me-2" %>
+        <%= form_tag recipes_search_path, :class => "d-flex", method: "GET" do %>
+          <%= search_field_tag :search, params[:search], :class => "form-control me-2" %>
           <%= submit_tag "Search", :class => "btn btn-outline-success" %>
         <% end %>
         </div>
@@ -59,12 +59,12 @@
                       <%= link_to "Sign in", login_path, :class => "nav-link active" %>
                     </li>
                     <% end %>
-                <% if @recipe.present? %>
+                <% if @recipe.present? && current_page?(controller: 'recipes', action: 'show') %>
                 <li class="nav-item">
                      <%= button_to "Delete Recipe", @recipe, :class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Are you sure?' } %>
                 </li>
                 <li class="nav-item">
-                     <%= button_to "Edit Recipe", @recipe, :class => 'btn btn-primary', :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+                     <%= link_to "Edit Recipe", edit_recipe_path(@recipe), :class => 'btn btn-primary', :method => :edit %>
                 </li>
                 <% end %>
 

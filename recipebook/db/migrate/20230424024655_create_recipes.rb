@@ -4,7 +4,8 @@ class CreateRecipes < ActiveRecord::Migration[7.0]
       t.text :title
       t.integer :user_id
       t.text :category
-      t.text :cusine      
+      t.text :cusine
+      t.text :dietary
       t.integer :cook_time
       t.integer :difficulty
       t.integer :serves

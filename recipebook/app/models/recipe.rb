@@ -6,4 +6,4 @@ class Recipe < ApplicationRecord
     accepts_nested_attributes_for :quantities, allow_destroy: true
     accepts_nested_attributes_for :ingredients, allow_destroy: true
     accepts_nested_attributes_for :steps, allow_destroy: true
-end
+    end
