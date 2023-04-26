@@ -1,7 +1,7 @@
 <%= form_with model: @recipe do |form| %>
     <div class="row">
         <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1" >Recipe Title</span>
+        <span class="input-group-text span_label" id="basic-addon1" >Recipe Title</span>
         <%= form.text_field :title, :class => 'form-control'%>
         </div>
     </div>
@@ -9,21 +9,21 @@
     <div class="row">
         <div class="col">
             <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Category</span>
-            <%= form.text_field :category, :class => 'form-control' %>
+                <span class="input-group-text span_label" id="basic-addon1">Category</span>
+                <%= form.text_field :category, :class => 'form-control' %>
         </div>
-        </div>
+    </div>
 
     <div class="col">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Cusine</span>
+            <span class="input-group-text span_label" id="basic-addon1">Cusine</span>
             <%= form.text_field :cusine, :class => 'form-control'%>
         </div>
     </div>
 
     <div class="col">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Dietary</span>
+            <span class="input-group-text span_label" id="basic-addon1">Dietary</span>
             <%= form.text_field :dietary, :class => 'form-control'%>
             </div>
         </div>
@@ -32,21 +32,21 @@
     <div class="row">
         <div class="col">
             <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Difficulty</span>
+            <span class="input-group-text span_label" id="basic-addon1">Difficulty</span>
             <%= form.number_field :difficulty, :step => 1, :class => 'form-control', placeholder: "Rate 1-5" %>
             </div>
         </div>
 
         <div class="col">
             <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Cook Time</span>
+            <span class="input-group-text  span_label" id="basic-addon1">Cook Time</span>
             <%= form.number_field :cook_time, :step => 1, :class => 'form-control', placeholder: "In Minutes" %>
             </div>
         </div>
 
         <div class="col">
             <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Serves</span>
+            <span class="input-group-text span_label" id="basic-addon1">Serves</span>
             <%= form.number_field :serves, :step => 1, :class => 'form-control' %>
             </div>
         </div>
@@ -55,7 +55,7 @@
     <%= form.fields_for :quantities do |quantities_form| %>
     <div class="row multiple-form-group">
         <div class="form-group input-group mb-3">
-            <span class="input-group-text">Ingredients</span>
+            <span class="input-group-text span_label">Ingredients</span>
             <%= quantities_form.number_field :amount, :step => 0.25, :class => 'form-control', placeholder: "Number" %>
             <%= quantities_form.text_field :unit, :step => 0.01, :class => 'form-control', placeholder: "Unit of Measure" %>
     <% end %>
@@ -63,17 +63,16 @@
     <%= form.fields_for :ingredients do |ingredients_form| %> 
             <%= ingredients_form.text_field :title, :class => 'form-control', placeholder: "Ingredient" %>
     <% end %>
-            <button class="btn btn-success btn-add " type="button" id="button-addon2">Add</button>
+            <button class="btn btn-success btn-add button_solid" type="button" id="button-addon2"> Add </button>
         </div>
     </div>  
-
 
     <%= form.fields_for :steps do |steps_form| %>
     <div class="row multiple-form-group">
         <div class="form-group input-group mb-3">
-            <span class="input-group-text">Steps</span>
+            <span class="input-group-text  span_label">Steps</span>
             <%= steps_form.text_field :process, :class => 'form-control' %>
-            <button class="btn btn-success btn-add " type="button" id="button-addon2">Add</button>
+            <button class="btn btn-success btn-add button_solid" type="button" id="button-addon2"> Add </button>
         </div>
     </div>
     <% end %>
@@ -81,7 +80,7 @@
     <div class="row">
         <div class="col">
             <div class="input-group mb-3">
-                <span class="input-group-text">Image URL</span>
+                <span class="input-group-text span_label">Image URL</span>
                 <%= form.url_field :image, :class => 'form-control' %>
             </div>
         </div>

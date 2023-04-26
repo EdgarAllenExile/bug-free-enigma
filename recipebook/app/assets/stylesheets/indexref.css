@@ -5,3 +5,11 @@
 .feature {
     max-height: 30em;
 }
+
+.span_label {
+    width: 7em;
+}
+
+.button_solid {
+    width: 5em;
+}
