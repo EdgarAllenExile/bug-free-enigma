@@ -28,20 +28,20 @@
           </div>
         </div>
     </div>
-  </div>
-<div class="col-sm-6">
+
+<div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card">
-      <h5 class="card-header">Want something completely random?</h5>
+      <h5 class="card-header">Have no idea?</h5>
         <div class="card-body">
-         <h5 class="card-title">Have no idea?</h5> 
-          <p class="card-text">Have no idea? Try a completely random recipe!</p>
-          <a href="#" class="btn btn-primary">Go!</a>
+         <h5 class="card-title">Want something completely random?</h5> 
+          <p class="card-text">Try spinning the wheel below!</p>
+          <% rand_id = Recipe.all.pluck(:id).sample %>
+          <%= link_to "Go!", "recipes/#{rand_id}", :class => "btn btn-success" %>
+      </div>
+    </div>
   </div>
-</div>
 </div>
 
-</div>
-</div>
   
 
 
