@@ -1,13 +1,11 @@
-<div class="container"> 
-<% @results.each do |result| %>
 
-    <div class="card mb-3">
+<% @results.each do |result| %>
+    <div class="card mb-3 border-secondary">
         <%= image_tag result.image, :class => 'card-img-top thumb img-fluid' if result.image.present? %>
         <div class="card-body">
-            <h5 class="card-title"><%= link_to result.title, result %></h5>
+            <h5 class="card-header"><%= link_to result.title, result, :class => "nav-link active" %></h5>
             <p class="card-text"> Category: <%= result.category %>  --  Cusine: <%= result.cusine %>  --  Diatery: <%= result.dietary %></p>
             <p class="card-text">Cook Time: <%= result.cook_time %> minutes  --  Difficulty: <%= result.difficulty %>/5  --  Serves: <%= result.serves %><small class="text-body-secondary"></small></p>
         </div>
     </div>
 <% end %>
-</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notes
   root :to => 'pages#home'  
 
   get 'recipes/index'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     resources :ingredients
     resources :quantities
     resources :steps
+    resources :notes
   end
 
   resources :quantities, shallow: true do

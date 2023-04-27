@@ -77,6 +77,16 @@
     </div>
     <% end %>
 
+    <%= form.fields_for :notes do |notes_form| %>
+    <div class="row multiple-form-group">
+        <div class="form-group input-group mb-3">
+            <span class="input-group-text  span_label">Notes</span>
+            <%= steps_form.text_field :note_text, :class => 'form-control' %>
+            <button class="btn btn-success btn-add button_solid" type="button" id="button-addon2"> Add </button>
+        </div>
+    </div>
+    <% end %>
+
     <div class="row">
         <div class="col">
             <div class="input-group mb-3">

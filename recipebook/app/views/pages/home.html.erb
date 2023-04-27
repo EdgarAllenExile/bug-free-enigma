@@ -9,7 +9,7 @@
 <div class="row">
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card mb-3 border-secondary">
-      <h5 class="card-header border-secondary text-bg-secondary">Not too sure what you would like?</h5>
+      <h4 class="card-header">Not too sure what you would like?</h4>
         <div class="card-body">
           <h5 class="card-title">Complete the following options and see what fits!</h5>
             <%= form_tag "/recipes/filter", method: "GET" do %>
@@ -32,10 +32,36 @@
           </div>
         </div>
     </div>
-
+      <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card mb-3 border-secondary">
+      <h4 class="card-header">Have some Ingredients you'd like to use?</h4>
+        <div class="card-body">
+          <h5 class="card-title">Complete the following options and see what fits!</h5>
+            <%= form_tag "/recipes/filter", method: "GET" do %>
+            <div class="form-floating mb-3">
+              <%= select_tag :search_by_category, options_for_select(Recipe.all.map(&:category).uniq.compact_blank), :class => "form-select"%> 
+              <%= label_tag :search_by_category, "Category"%>
+            </div>
+             <div class="form-floating mb-3">
+              <%= select_tag :search_by_cusine, options_for_select(Recipe.all.map(&:cusine).uniq.compact_blank), :class => "form-select" %>
+            <%= label_tag :search_by_cusine, "Cusine"%>
+            </div>
+            <div class="form-floating mb-3">
+              <%= select_tag :search_by_dietary, options_for_select(Recipe.all.map(&:dietary).uniq.compact_blank), :class => "form-select" %>
+            <%= label_tag :search_by_dietary, "Dietary"%>
+            </div>  
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <%= submit_tag "Search", :class => "btn btn-success btn btn-primary" %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="row">
 <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card border-secondary">
-      <h5 class="card-header border-secondary text-bg-secondary ">Have no idea?</h5>
+      <h4 class="card-header">Have no idea?</h4>
         <div class="card-body">
          <h5 class="card-title">Want something completely random?</h5> 
           <p class="card-text">Try your luck!</p>

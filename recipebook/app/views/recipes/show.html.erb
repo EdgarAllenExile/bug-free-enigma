@@ -43,5 +43,14 @@
             <li><%= step.process %></li>
         <% end %>
         </ol> 
+
+    <hr>
+
+        <h4>Notes: </h4>
+        <ol>
+        <% @recipe.notes.each do |note| %>
+            <li><%= note.note_text %></li>
+        <% end %>
+        </ol>        
     </div>
 </div>

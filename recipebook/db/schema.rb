@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_042548) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_27_034219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_042548) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.text "note_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notes_recipes", id: false, force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "note_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "quantities", force: :cascade do |t|
     t.text "unit"
     t.text "amount"
@@ -50,20 +63,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_042548) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.text "title"
+    t.text "title", default: "Not Specified"
     t.integer "user_id"
-    t.text "category"
-    t.text "cusine"
-    t.text "dietary"
-    t.integer "cook_time"
-    t.integer "difficulty"
-    t.integer "serves"
+    t.text "category", default: "Not Specified"
+    t.text "cusine", default: "Not Specified"
+    t.text "dietary", default: "Not Specified"
+    t.integer "cook_time", default: 10
+    t.integer "difficulty", default: 1
+    t.integer "serves", default: 1
     t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipes_steps", force: :cascade do |t|
+  create_table "recipes_steps", id: false, force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "step_id"
     t.datetime "created_at", null: false
@@ -72,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_042548) do
 
   create_table "steps", force: :cascade do |t|
     t.integer "step_no"
-    t.text "process"
+    t.text "process", default: "Not Specified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -25,6 +25,12 @@ s2 = Step.create :step_no => 2, :process => "Fry the egg."
 s3 = Step.create :step_no => 3, :process => "Consume!"
 puts "#{Step.count} steps total!"
 
+Note.destroy_all
+n1 = Note.create :note_text => "You hate eggs on toast"
+n2 = Note.create :note_text => "Why even use this?"
+n3 = Note.create :note_text => "Demonstration purposes"
+puts "#{Note.count} notes total!"
+
 puts "Users and Recipes"
 u1.recipes << r1
 
@@ -40,3 +46,6 @@ i2.quantities << q2
 
 puts "Recipes and Steps"
 r1.steps << s1 << s2 << s3
+
+puts "Recipes and Notes"
+r1.notes << n1 << n2 << n3
