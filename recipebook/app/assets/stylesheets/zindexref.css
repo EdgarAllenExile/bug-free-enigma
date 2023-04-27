@@ -1,0 +1,37 @@
+.thumb {
+    height: 12em;
+}
+
+.feature {
+    max-height: 30em;
+}
+
+.span_label {
+    width: 7em;
+}
+
+.button_solid {
+    width: 5em;
+}
+
+.label_white {
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+label {
+    --bs-body-bg: white;
+    color: black;
+}
+
+.select-label {
+    /* --bs-body-bg: white; */
+    color: black;
+}
+
+.input_tag_bg_col {
+    background-color: #5bc0de;
+}

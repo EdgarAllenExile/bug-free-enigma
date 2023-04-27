@@ -13,20 +13,20 @@
         <div class="card-body">
           <h5 class="card-title">Complete the following options and see what fits!</h5>
             <%= form_tag "/recipes/filter", method: "GET" do %>
-            <div class="form-floating mb-3">
+            <div class="mb-3 input-group input-group-lg">
+             <span class="input-group-text span_label input_tag_bg_col " id="basic-addon1">Category</span>
               <%= select_tag :search_by_category, options_for_select(Recipe.all.map(&:category).uniq.compact_blank), :class => "form-select"%> 
-              <%= label_tag :search_by_category, "Category"%>
             </div>
-             <div class="form-floating mb-3">
+             <div class="mb-3 input-group input-group-lg">
+             <span class="input-group-text span_label input_tag_bg_col" id="basic-addon1">Cusine</span>
               <%= select_tag :search_by_cusine, options_for_select(Recipe.all.map(&:cusine).uniq.compact_blank), :class => "form-select" %>
-            <%= label_tag :search_by_cusine, "Cusine"%>
             </div>
-            <div class="form-floating mb-3">
+             <div class="mb-3 input-group input-group-lg">
+             <span class="input-group-text span_label input_tag_bg_col" id="basic-addon1">Dietary</span>
               <%= select_tag :search_by_dietary, options_for_select(Recipe.all.map(&:dietary).uniq.compact_blank), :class => "form-select" %>
-            <%= label_tag :search_by_dietary, "Dietary"%>
             </div>  
             <div class="d-grid gap-2 col-6 mx-auto">
-              <%= submit_tag "Search", :class => "btn btn-success btn btn-primary" %>
+              <%= submit_tag "Search", :class => "btn btn-success btn-lg" %>
             <% end %>
             </div>
           </div>
@@ -37,21 +37,21 @@
       <h4 class="card-header">Have some Ingredients you'd like to use?</h4>
         <div class="card-body">
           <h5 class="card-title">Complete the following options and see what fits!</h5>
-            <%= form_tag "/recipes/filter", method: "GET" do %>
-            <div class="form-floating mb-3">
-              <%= select_tag :search_by_category, options_for_select(Recipe.all.map(&:category).uniq.compact_blank), :class => "form-select"%> 
-              <%= label_tag :search_by_category, "Category"%>
+            <%= form_tag "/recipes/filter_ing", method: "GET" do %>
+             <div class="mb-3 input-group input-group-lg">
+             <span class="input-group-text span_label input_tag_bg_col" id="basic-addon1">Ingredients</span>
+              <%= select_tag :search_by_ingredient_1, options_for_select(Ingredient.all.map(&:title).uniq.compact_blank), :class => "form-select"%> 
             </div>
-             <div class="form-floating mb-3">
-              <%= select_tag :search_by_cusine, options_for_select(Recipe.all.map(&:cusine).uniq.compact_blank), :class => "form-select" %>
-            <%= label_tag :search_by_cusine, "Cusine"%>
+             <div class="mb-3 input-group input-group-lg">
+             <span class="input-group-text span_label input_tag_bg_col" id="basic-addon1">Ingredients</span>
+              <%= select_tag :search_by_ingredient_2, options_for_select(Ingredient.all.map(&:title).uniq.compact_blank), :class => "form-select" %>
             </div>
-            <div class="form-floating mb-3">
-              <%= select_tag :search_by_dietary, options_for_select(Recipe.all.map(&:dietary).uniq.compact_blank), :class => "form-select" %>
-            <%= label_tag :search_by_dietary, "Dietary"%>
+             <div class="mb-3 input-group input-group-lg">
+             <span class="input-group-text span_label input_tag_bg_col" id="basic-addon1">Ingredients</span>
+              <%= select_tag :search_by_ingredient_2, options_for_select(Ingredient.all.map(&:title).uniq.compact_blank), :class => "form-select", :placeholder => nil%>
             </div>  
             <div class="d-grid gap-2 col-6 mx-auto">
-              <%= submit_tag "Search", :class => "btn btn-success btn btn-primary" %>
+              <%= submit_tag "Search", :class => "btn btn-success btn-lg" %>
             <% end %>
             </div>
           </div>
@@ -67,7 +67,7 @@
           <p class="card-text">Try your luck!</p>
           <% rand_id = Recipe.all.pluck(:id).sample %>
           <div class="d-grid gap-2 col-6 mx-auto">
-          <%= link_to "Go!", "recipes/#{rand_id}", :class => "btn btn-success" %>
+          <%= link_to "Go!", "recipes/#{rand_id}", :class => "btn btn-success btn-lg" %>
           </div>
       </div>
     </div>

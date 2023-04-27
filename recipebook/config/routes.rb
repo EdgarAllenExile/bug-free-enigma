@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'recipes/new'
   get 'recipes/search'
   get 'recipes/filter'
+  get 'recipes/filter_ing'
  
   # get 'users/index'
   # get 'users/show'

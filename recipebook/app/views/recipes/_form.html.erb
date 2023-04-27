@@ -10,21 +10,21 @@
         <div class="col">
             <div class="input-group mb-3">
                 <span class="input-group-text span_label" id="basic-addon1">Category</span>
-                <%= form.text_field :category, :class => 'form-control' %>
+                <%= form.text_field :category, :class => 'form-control', :placeholder => "Lunch / Dinner / Etc"%>
         </div>
     </div>
 
     <div class="col">
         <div class="input-group mb-3">
             <span class="input-group-text span_label" id="basic-addon1">Cusine</span>
-            <%= form.text_field :cusine, :class => 'form-control'%>
+            <%= form.text_field :cusine, :class => 'form-control', :placeholder => "Kinda the vibe"%>
         </div>
     </div>
 
     <div class="col">
         <div class="input-group mb-3">
             <span class="input-group-text span_label" id="basic-addon1">Dietary</span>
-            <%= form.text_field :dietary, :class => 'form-control'%>
+            <%= form.text_field :dietary, :class => 'form-control', :placeholder => "Vego / GF / etc"%>
             </div>
         </div>
     </div>
@@ -101,5 +101,5 @@
             </div>
         </div>
 
-        <%= form.submit "Create Recipe", :class => 'btn btn-success btn-sm' %>
+        <%= form.submit "Create Recipe", :class => 'btn btn-success' %>
 <% end %> 

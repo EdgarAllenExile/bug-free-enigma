@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <html>
+ <html theme="light">
   <head>
     <title>RecipeBook</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,14 +13,14 @@
 
   <body>
     <div class="container">
-      <nav class="navbar bg-body-navbar bg-primary ">
+      <nav class="navbar bg-primary ">
       <div class="container-fluid">
       <a class="navbar-brand" href="/">Home</a>
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
       <div class="btn-group me-2" role="group" aria-label="First group">
         <%= form_tag recipes_search_path, :class => "d-flex", method: "GET" do %>
           <%= search_field_tag :search, params[:search], :class => "form-control me-2" %>
-          <%= submit_tag "Search", :class => "btn btn-outline-success" %>
+          <%= submit_tag "Search", :class => "btn btn-success" %>
         <% end %>
         </div>
         <div class="btn-group me-2" role="group" aria-label="First group">
@@ -37,10 +37,10 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                      <%= link_to "New Recipe", new_recipe_path, :class => "nav-link active" %>
+                      <%= link_to "New Recipe", new_recipe_path, :class => "nav-link label_white" %>
                 </li>
                 <li class="nav-item">
-                      <%= link_to "All Recipes", recipes_path, :class => "nav-link active" %>
+                      <%= link_to "All Recipes", recipes_path, :class => "nav-link label_white" %>
                 </li>
                 <% if @recipe.present? && current_page?(controller: 'recipes', action: 'show') %>
                 <hr>

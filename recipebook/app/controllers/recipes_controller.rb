@@ -10,10 +10,22 @@ class RecipesController < ApplicationController
       redirect_to recipes_path
 
     else
-      @parameter_category = params[:search_by_category].downcase
-      @parameter_cusine = params[:search_by_cusine].downcase
-      @parameter_dietary = params[:search_by_dietary].downcase 
+      @parameter_category = params[:search_by_category]
+      @parameter_cusine = params[:search_by_cusine]
+      @parameter_dietary = params[:search_by_dietary] 
       @results = Recipe.all.where(category: @parameter_category, cusine: @parameter_cusine, dietary: @parameter_dietary)
+    end
+  end
+
+  def filter_ing
+    if params[:search_by_ingredient_1].blank? && params[:search_by_ingredient_2].blank? && params[:search_by_ingredient_3].blank?
+      redirect_to recipes_path
+
+    else
+      @parameter_ingredient_1 = params[:search_by_ingredient_1]
+      @parameter_ingredient_2 = params[:search_by_ingredient_2]
+      @parameter_ingredient_3 = params[:search_by_ingredient_3] 
+      @results = Recipe.joins(:ingredients).where(ingredients: @parameter_ingredient_1)
     end
   end
 
