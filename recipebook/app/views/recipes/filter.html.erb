@@ -1,10 +1,14 @@
+<h1> Filter Results </h1>
+<div class="row row-cols-1 row-cols-md-2 g-4">
 <% @results.each do |result| %>
 <div class="card mb-3 border-secondary">
-    <%= image_tag result.image, :class => 'card-img-top thumb img-fluid' if result.image.present? %>
+    <%= image_tag result.image, :class => 'card-img-top img-fluid' if result.image.present? %>
     <h5 class="card-title card-header"><%= link_to result.title, result, :class => "nav-link active"%></h5>
       <div class="card-body">
     <p class="card-text"> Category: <%= result.category %>  --  Cusine: <%= result.cusine %>  --  Diatery: <%= result.dietary %></p>
     <p class="card-text">Cook Time: <%= result.cook_time %> minutes  --  Difficulty: <%= result.difficulty %>/5  --  Serves: <%= result.serves %><small class="text-body-secondary"></small></p>
   </div>
 </div>
+</div>
 <% end %>
+</div>

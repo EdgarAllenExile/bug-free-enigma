@@ -4,7 +4,7 @@
 <% @recipes.each do |recipe| %>
 <div class="col">
 <div class="card border-secondary">
-    <%= image_tag recipe.image, :class => 'card-img-top thumb img-fluid' if recipe.image.present? %>
+    <%= image_tag recipe.image, :class => 'card-img-top img-fluid' if recipe.image.present? %>
     <h5 class="card-header"><%= link_to recipe.title, recipe, :class => "nav-link active"%></h5>
     <div class="card-body">
     <p class="card-text"> Category: <%= recipe.category %>  --  Cusine: <%= recipe.cusine %>  --  Diatery: <%= recipe.dietary %></p>
