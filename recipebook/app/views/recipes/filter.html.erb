@@ -1,6 +1,7 @@
 <h1> Filter Results </h1>
 <div class="row row-cols-1 row-cols-md-2 g-4">
 <% @results.each do |result| %>
+<div class="col">
 <div class="card mb-3 border-secondary">
     <%= image_tag result.image, :class => 'card-img-top img-fluid' if result.image.present? %>
     <h5 class="card-title card-header"><%= link_to result.title, result, :class => "nav-link active"%></h5>
@@ -12,3 +13,6 @@
 </div>
 <% end %>
 </div>
+</div>
+
+

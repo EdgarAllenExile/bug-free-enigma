@@ -4,9 +4,12 @@
     <h2><%= flash[:error] %></h2>
 <% end %>
 <%= form_tag login_path do %>
-    <%= label_tag :email, nil, :class => 'form-label' %>
+<br>
+    <%= label_tag :email, nil, :class => 'form-label label_white' %>
     <%= email_field_tag :email, nil, :class => 'form-control' %>
-    <%= label_tag :password, nil, :class => 'form-label' %>
-    <%= password_field_tag :password, nil, :class => 'form-control' %>
+ <br>
+    <%= label_tag :password, nil, :class => 'form-label label_white' %>
+    <%= password_field_tag :password, nil, :class => 'form-control ' %>
+ <br>
     <%= submit_tag "Sign in", :class => 'btn btn-primary btn-lg' %>
 <% end %>

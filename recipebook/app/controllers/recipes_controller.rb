@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
       @parameter_ingredient_1 = params[:search_by_ingredient_1]
       @parameter_ingredient_2 = params[:search_by_ingredient_2]
       @parameter_ingredient_3 = params[:search_by_ingredient_3] 
-      @results = Recipe.joins(:ingredients).where(ingredients: @parameter_ingredient_1)
+      @results = Recipe.joins(:ingredients).where(ingredients: {title: @parameter_ingredient_1}, ingredients: {title: @parameter_ingredient_2}, ingredients: {title: @parameter_ingredient_3})
     end
   end
 
