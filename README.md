@@ -1,4 +1,4 @@
-# README
+# RecipeBook
 
 ## Overview
 The initial aim of this project is to create a single point of reference to consolidate the recipes that I use frequently. 
