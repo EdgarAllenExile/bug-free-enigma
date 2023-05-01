@@ -5,7 +5,7 @@ The initial aim of this project is to create a single point of reference to cons
 
 Currently, I use a rough GoogleDoc to save recipes that I wish to reference in the future. I would like this app to replace this document and add in additional functionality.
 
-The additional functionality I would like to include is to be able to filter all recipes by set keywords or ingredients. This would make deciding what to eat easier (hopefully)!.
+The additional functionality I would like to include is to be able to filter all recipes by set keywords or ingredients. This would make deciding what to eat easier (hopefully)!
 
 
 ## Current Issues
